@@ -1,0 +1,20 @@
+﻿@model Store.Models.Product
+ 
+<h2>Добавление продукта</h2>
+<form asp-action="create" asp-controller="home">
+    <p>
+        <label asp-for="Name">Имя</label><br />
+        <input type="text" asp-for="Name" />
+    </p>
+    <p>
+        <label asp-for="Price">Цена</label><br />
+        <input type="number" asp-for="Price" />
+    </p>
+    @*<p>
+        <label asp-for="Price">Цена</label><br />
+        <input type="number" asp-for="Price" />
+    </p>*@
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

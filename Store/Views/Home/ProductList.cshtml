@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Sorting";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Store.Models.ProductListViewModel
+  
+<h2>Каталог продуктов</h2>
+  
+<form method="get">
+    <div>
+        <label>Название </label>
+        <input asp-for="Name" />
+
+        @*<label>Цена </label>
+        <input asp-for="Price" />*@
+  
+        <label>Тип </label>
+        <select name="Type" asp-items="Model.Types"></select>
+  
+        <input type="submit" value="Фильтр" />
+    </div>
+</form>
+  
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Тип</th>
+    </tr>
+  
+    @foreach (var item in Model.Products)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Type?.Name</td>
+        </tr>
+    }
+</table>
