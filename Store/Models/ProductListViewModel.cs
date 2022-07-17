@@ -6,6 +6,7 @@ namespace Store.Models
     {
         public IEnumerable<Product> Products { get; set; } = new List<Product>();
         public SelectList Types { get; set; } = new SelectList(new List<Type>(), "Id", "Name");
-        public string? Name { get; set; }   
+        public string? Name { get; set; }
+        public SortViewModel SortViewModel { get; set; } = new SortViewModel(SortState.NameAsc);
     }
 }

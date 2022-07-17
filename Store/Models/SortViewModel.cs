@@ -45,8 +45,5 @@ namespace Store.Models
                     break;
             }
         }
-        public IEnumerable<Product> Products { get; set; } = new List<Product>();
-        public SelectList Types { get; set; } = new SelectList(new List<Type>(), "Id", "Name");
-        public string? Name { get; set; }
     }
 }

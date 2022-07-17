@@ -36,17 +36,28 @@ namespace Store.Controllers
             }
         }
 
-        public ActionResult Index(int? type, string? name)
+        public ActionResult Index(int? type, string? name, SortState sortOrder = SortState.NameAsc)
         {
-            IQueryable<Product> users = db.Products.Include(p => p.Type);
+            IQueryable<Product> product = db.Products.Include(p => p.Type);
+
             if (type != null && type != 0)
             {
-                users = users.Where(p => p.TypeId == type);
+                product = product.Where(p => p.TypeId == type);
             }
             if (!string.IsNullOrEmpty(name))
             {
-                users = users.Where(p => p.Name!.Contains(name));
+                product = product.Where(p => p.Name!.Contains(name));
             }
+
+            product = sortOrder switch
+            {
+                SortState.NameDesc => product.OrderByDescending(s => s.Name),
+                SortState.PriceAsc => product.OrderBy(s => s.Price),
+                SortState.PriceDesc => product.OrderByDescending(s => s.Price),
+                SortState.TypeAsc => product.OrderBy(s => s.Type!.Name),
+                SortState.TypeDesc => product.OrderByDescending(s => s.Type!.Name),
+                _ => product.OrderBy(s => s.Name),
+            };
 
             List<Store.Models.Type> companies = db.Types.ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
@@ -54,9 +65,10 @@ namespace Store.Controllers
 
             ProductListViewModel viewModel = new ProductListViewModel
             {
-                Products = users.ToList(),
+                Products = product.ToList(),
                 Types = new SelectList(companies, "Id", "Name", type),
-                Name = name
+                Name = name,
+                SortViewModel = new SortViewModel(sortOrder)
             };
             return View(viewModel);
         }
