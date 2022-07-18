@@ -30,7 +30,7 @@ namespace Store.Controllers
                 Product product7 = new Product { Name = "Joghurt", Type = diary, Price = 2 };
                 Product product8 = new Product { Name = "Apple", Type = fruit, Price = 1 };
 
-                db.Types.AddRange(drink, meat, diary, fruit);
+                db.Types.AddRange(drink, diary, meat, fruit);
                 db.Products.AddRange(product1, product2, product3, product4, product5, product6, product7, product8);
                 db.SaveChanges();
             }
@@ -70,6 +70,7 @@ namespace Store.Controllers
                 Name = name,
                 SortViewModel = new SortViewModel(sortOrder)
             };
+
             return View(viewModel);
         }
         public ActionResult ProductList(int? type, string? name)
@@ -94,10 +95,13 @@ namespace Store.Controllers
                 Types = new SelectList(companies, "Id", "Name", type),
                 Name = name
             };
+
             return View(viewModel);
         }
         public IActionResult Create()
         {
+            List<Store.Models.Type> companies = db.Types.ToList();
+
             return View();
         }
 
@@ -106,6 +110,7 @@ namespace Store.Controllers
         {
             db.Products.Add(product);
             await db.SaveChangesAsync();
+
             return RedirectToAction("Index");
         }
 
@@ -117,25 +122,32 @@ namespace Store.Controllers
                 Product product = new Product { Id = id.Value };
                 db.Entry(product).State = EntityState.Deleted;
                 await db.SaveChangesAsync();
+
                 return RedirectToAction("Index");
             }
+
             return NotFound();
         }
 
         public async Task<IActionResult> Edit(int? id)
         {
+            List<Store.Models.Type> companies = db.Types.ToList();
+
             if (id != null)
             {
                 Product? product = await db.Products.FirstOrDefaultAsync(p => p.Id == id);
                 if (product != null) return View(product);
             }
+
             return NotFound();
         }
         [HttpPost]
         public async Task<IActionResult> Edit(Product product)
         {
+            //List<Store.Models.Type> companies = db.Types.ToList();
             db.Products.Update(product);
             await db.SaveChangesAsync();
+
             return RedirectToAction("Index");
         }
     }

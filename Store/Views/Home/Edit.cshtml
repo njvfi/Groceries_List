@@ -8,12 +8,17 @@
     </p>
     <p>
         <label asp-for="Price">Цена</label><br />
-        <input type="number" asp-for="Price" />
+        <input type="text" asp-for="Price" />
     </p>
-    @*<p>
-        <select name="Type" asp-items="Model.Types"></select>
-        <input type="submit"/>
-    </p>*@
+    <p> 
+        <select asp-for="TypeId">
+            <option value="">Виберіть категорію</option>
+            <option value="1">Drink</option>
+            <option value="2">Diary</option>
+            <option value="3">Meat</option>
+            <option value="4">Fruit</option>
+        </select>
+    </p>
     <p>
         <input type="submit" value="Сохранить" />
     </p>

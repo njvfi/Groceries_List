@@ -15,6 +15,7 @@ namespace Store.Models
             // значения по умолчанию
             NameSort = SortState.NameAsc;
             TypeSort = SortState.TypeAsc;
+            PriceSort = SortState.PriceAsc;
             Up = true;
 
             if (sortOrder == SortState.NameDesc
