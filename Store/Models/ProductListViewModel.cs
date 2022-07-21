@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace Store.Models
 {
     public class ProductListViewModel

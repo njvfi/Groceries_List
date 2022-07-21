@@ -12,12 +12,16 @@
     </p>
     <p> 
         <select asp-for="TypeId">
-            <option value="">Виберіть категорію</option>
-            <option value="1">Drink</option>
-            <option value="2">Diary</option>
-            <option value="3">Meat</option>
-            <option value="4">Fruit</option>
+            <option value="">Виберите категорию</option>
+            <option value="1">Напитки</option>
+            <option value="2">Молочные продукты</option>
+            <option value="3">Мясо</option>
+            <option value="4">Фрукты</option>
         </select>
+    </p>
+    <p>
+        <label asp-for="Description">Описание</label><br />
+        <input type="text" asp-for="Description" />
     </p>
     <p>
         <input type="submit" value="Отправить" />

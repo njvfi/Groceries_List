@@ -1,0 +1,12 @@
+﻿@model Store.Models.Product
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<h1>Товар @Model.Name</h1>
+Категория: @Model.Type?.Name <br />
+Описание товара: @Model.Description<br />
+Цена товара: @Model.Price<br />
+
+

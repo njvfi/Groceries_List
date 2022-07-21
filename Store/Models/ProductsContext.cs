@@ -6,6 +6,7 @@ namespace Store.Models
     {
         public DbSet<Product> Products { get; set; } = null!;
         public DbSet<Type> Types { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
         public ProductsContext(DbContextOptions<ProductsContext> options)
             : base(options)
         {

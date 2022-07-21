@@ -31,7 +31,9 @@
     @foreach (var item in Model.Products)
     {
         <tr>
-            <td>@item.Name</td>
+            <td>
+                <a asp-action="Product" asp-controller="Home" asp-route-id="@item.Id">@item.Name</a>
+            </td>
             <td>@item.Price</td>
             <td>@item.Type?.Name</td>
         </tr>
