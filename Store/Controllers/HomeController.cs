@@ -116,7 +116,7 @@ namespace Store.Controllers
         {
             if (id != null)
             {
-                Product? product = await db.Products.FirstOrDefaultAsync(p => p.Id == id);
+                Product? product = await db.Products.Include(pr => pr.Type).FirstOrDefaultAsync(p => p.Id == id);
                 if (product != null) return View(product);
             }
 
