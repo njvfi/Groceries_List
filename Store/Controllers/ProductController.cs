@@ -38,6 +38,11 @@ namespace Store.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(product);
+            }
+
             db.Products.Add(product);
             await db.SaveChangesAsync();
 
@@ -80,6 +85,11 @@ namespace Store.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(product);
+            }
+
             db.Products.Update(product);
             await db.SaveChangesAsync();
 
