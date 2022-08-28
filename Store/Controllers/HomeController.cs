@@ -112,80 +112,6 @@ namespace Store.Controllers
         }
 
 
-        public async Task<ActionResult> Product(int? id)
-        {
-            if (id != null)
-            {
-                Product? product = await db.Products.Include(pr => pr.Type).FirstOrDefaultAsync(p => p.Id == id);
-                if (product != null) return View(product);
-            }
-
-            return NotFound();
-        }
-
-
-        #region Creation
-        public IActionResult Create()
-        {
-            List<Store.Models.Type> companies = db.Types.ToList();
-
-            return View();
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Create(Product product)
-        {
-            db.Products.Add(product);
-            await db.SaveChangesAsync();
-
-            return RedirectToAction("Index");
-        }
-        #endregion
-
-
-        [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id != null)
-            {
-                Product product = new Product { Id = id.Value };
-                db.Entry(product).State = EntityState.Deleted;
-                await db.SaveChangesAsync();
-
-                return RedirectToAction("Index");
-            }
-
-            return NotFound();
-        }
-
-
-        #region Edition
-        public async Task<IActionResult> Edit(int? id)
-        {
-            List<Store.Models.Type> companies = db.Types.ToList();
-
-            if (id != null)
-            {
-                Product? product = await db.Products.FirstOrDefaultAsync(p => p.Id == id);
-                if (product != null) return View(product);
-            }
-
-            return NotFound();
-        }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(Product product)
-        {
-            db.Products.Update(product);
-            await db.SaveChangesAsync();
-
-            return RedirectToAction("Index");
-        }
-        #endregion
-
-
         #region Profile
         /*public async Task<IActionResult> Profile(int? id)
         {
@@ -211,7 +137,7 @@ namespace Store.Controllers
 
 
         #region Donation
-        public async Task<IActionResult> AddMoney(int? id)
+        /*public async Task<IActionResult> AddMoney(int? id)
         {
             if (id != null)
             {
@@ -230,7 +156,7 @@ namespace Store.Controllers
             await db.SaveChangesAsync();
 
             return RedirectToAction("Index");
-        }
+        }*/
         #endregion
     }
 }

@@ -32,7 +32,7 @@
     {
         <tr>
             <td>
-                <a asp-action="Product" asp-controller="Home" asp-route-id="@item.Id">@item.Name</a>
+                <a asp-action="index" asp-controller="product" asp-route-id="@item.Id">@item.Name</a>
             </td>
             <td>@item.Price</td>
             <td>@item.Type?.Name</td>

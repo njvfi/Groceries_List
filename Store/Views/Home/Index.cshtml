@@ -9,7 +9,7 @@
 
  
 <h2>Список товаров</h2>
-<p><a asp-action="Create">Добавить товар</a></p>
+<p><a asp-action="Create" asp-controller="Product">Добавить товар</a></p>
 <table class="table">
      @*<tr><th>Название</th><th>Цена</th><th>Тип продукта</th><th></th><th></th></tr>*@
      <tr>
@@ -41,15 +41,15 @@
     {
         <tr>
             <td>
-                <a asp-action="Product" asp-controller="Home" asp-route-id="@item.Id">@item.Name</a>
+                <a asp-action="Index" asp-controller="Product" asp-route-id="@item.Id">@item.Name</a>
             </td>
             <td>@item.Price</td>
             <td>@item.Type?.Name</td>
             <td>
-                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Id">Изменить</a>
+                <a asp-action="Edit" asp-controller="Product" asp-route-id="@item.Id">Изменить</a>
             </td>
             <td>
-                <form asp-controller="Home" asp-action="Delete" method="post"  asp-route-id="@item.Id">
+                <form asp-controller="Product" asp-action="Delete" method="post"  asp-route-id="@item.Id">
                     <input type="submit" value="Удалить" />
                 </form>
             </td>

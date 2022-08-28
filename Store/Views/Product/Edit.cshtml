@@ -1,7 +1,7 @@
 ﻿@model Store.Models.Product
  
 <h2>Редактирование продукта</h2>
-<form asp-action="edit" asp-controller="home" asp-route-id="@Model.Id">
+<form asp-controller="product" asp-action="edit" asp-route-id="@Model.Id">
     <p>
         <label asp-for="Name">Название</label><br />
         <input type="text" asp-for="Name" />
@@ -13,10 +13,10 @@
     <p> 
         <select asp-for="TypeId">
             <option value="">Виберіть категорію</option>
-            <option value="1">Drink</option>
-            <option value="2">Diary</option>
-            <option value="3">Meat</option>
-            <option value="4">Fruit</option>
+            <option value="1">Напитки</option>
+            <option value="2">Молочные Продукты</option>
+            <option value="3">Мясо</option>
+            <option value="4">Фрукты</option>
         </select>
     </p>
     <p>
