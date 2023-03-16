@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "61scQy8A+R+P/kBFiFYTOEgpnvNAMI5Ik7M5kgMyT2IByxkSn3gIh6aSQajVFAaDelr36IcfMjNzR97DiYtaBQ==",
+  "dgSpecHash": "4UgxKKdsHCbaBi845pftqGjnnSCJpBhLaDtq+ii+0Bne361wup//GzK2yQ6hJjUC5QJZM4qImdr/f2wUnuNQ2w==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Томаш\\source\\repos\\Store\\Store\\Store.csproj",
+  "projectFilePath": "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\TodoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jalju\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\jalju\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

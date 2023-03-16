@@ -1,4 +1,4 @@
-﻿namespace Store.Models
+﻿namespace TodoList.Models
 {
     public class User
     {

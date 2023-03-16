@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Store.Models;
+using TodoList.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Store.Controllers
+namespace TodoList.Controllers
 {
     public class HomeController : Controller
     {
@@ -20,10 +20,10 @@ namespace Store.Controllers
             // добавим начальные данные для тестирования
             if (!db.Types.Any())
             {
-                Store.Models.Type drink = new Store.Models.Type { Name = "Напитки" };
-                Store.Models.Type diary = new Store.Models.Type { Name = "Молочные продукты" };
-                Store.Models.Type meat = new Store.Models.Type { Name = "Мясо" };
-                Store.Models.Type fruit = new Store.Models.Type { Name = "Фрукты" };
+                TodoList.Models.Type drink = new TodoList.Models.Type { Name = "Напитки" };
+                TodoList.Models.Type diary = new TodoList.Models.Type { Name = "Молочные продукты" };
+                TodoList.Models.Type meat = new TodoList.Models.Type { Name = "Мясо" };
+                TodoList.Models.Type fruit = new TodoList.Models.Type { Name = "Фрукты" };
 
                 Product product1 = new Product { Name = "Пепси", Description = "Pepsi («Пе́пси») — газированный безалкогольный напиток, производимый компанией PepsiCo.", Type = drink, Price = 1 };
                 Product product2 = new Product { Name = "Вода", Description = "Бонáква (англ. BonAqua) — бутилированная вода, изготовлена компанией (The Coca-Cola Company).", Type = drink, Price = 1 };
@@ -40,7 +40,7 @@ namespace Store.Controllers
             }
             if (!db.Users.Any())
             {
-                Store.Models.User Tom = new Store.Models.User { Name = "Tom", Id = 0, Account = 200 };
+                TodoList.Models.User Tom = new TodoList.Models.User { Name = "Tom", Id = 0, Account = 200 };
             }
         }
         #endregion
@@ -69,9 +69,9 @@ namespace Store.Controllers
                 _ => product.OrderBy(s => s.Name),
             };
 
-            List<Store.Models.Type> companies = db.Types.ToList();
+            List<TodoList.Models.Type> companies = db.Types.ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
-            companies.Insert(0, new Store.Models.Type { Name = "Все", Id = 0 });
+            companies.Insert(0, new TodoList.Models.Type { Name = "Все", Id = 0 });
 
             ProductListViewModel viewModel = new ProductListViewModel
             {
@@ -97,9 +97,9 @@ namespace Store.Controllers
                 users = users.Where(p => p.Name!.Contains(name));
             }
 
-            List<Store.Models.Type> companies = db.Types.ToList();
+            List<TodoList.Models.Type> companies = db.Types.ToList();
             // устанавливаем начальный элемент, который позволит выбрать всех
-            companies.Insert(0, new Store.Models.Type { Name = "Все", Id = 0 });
+            companies.Insert(0, new TodoList.Models.Type { Name = "Все", Id = 0 });
 
             ProductListViewModel viewModel = new ProductListViewModel
             {

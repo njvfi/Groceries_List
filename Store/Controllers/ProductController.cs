@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Store.Models;
+using TodoList.Models;
 
-namespace Store.Controllers
+namespace TodoList.Controllers
 {
     public class ProductController : Controller
     {
@@ -29,7 +29,7 @@ namespace Store.Controllers
         #region Creation
         public IActionResult Create()
         {
-            List<Store.Models.Type> companies = db.Types.ToList();
+            List<TodoList.Models.Type> companies = db.Types.ToList();
 
             return View();
         }
@@ -70,7 +70,7 @@ namespace Store.Controllers
         #region Edition
         public async Task<IActionResult> Edit(int? id)
         {
-            List<Store.Models.Type> companies = db.Types.ToList();
+            List<TodoList.Models.Type> companies = db.Types.ToList();
 
             if (id != null)
             {

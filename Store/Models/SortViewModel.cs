@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Store.Models
+namespace TodoList.Models
 {
     public class SortViewModel
     {

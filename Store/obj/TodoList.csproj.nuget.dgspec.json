@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\Store.csproj": {}
+    "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\TodoList.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\Store.csproj": {
+    "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\TodoList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\Store.csproj",
-        "projectName": "Store",
-        "projectPath": "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\Store.csproj",
+        "projectUniqueName": "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\TodoList.csproj",
+        "projectName": "TodoList",
+        "projectPath": "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\TodoList.csproj",
         "packagesPath": "C:\\Users\\jalju\\.nuget\\packages\\",
         "outputPath": "D:\\Users\\Томаш\\source\\repos\\TodoList\\Store\\obj\\",
         "projectStyle": "PackageReference",
